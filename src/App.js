@@ -1,11 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./App.css";
+import Router from "./router/router";
+import { Routes } from "./router/routes/index";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <Suspense fallback={null}>
+      <Router Routes={Routes} />
+    </Suspense>
   );
 }
 
