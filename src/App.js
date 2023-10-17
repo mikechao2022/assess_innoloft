@@ -1,13 +1,19 @@
-import React, { Suspense } from "react";
-import "./App.css";
+import React, { useEffect } from "react";
 import Router from "./router/router";
 import { Routes } from "./router/routes/index";
+import useApi from "./hooks/use_api";
 
 function App() {
+  const { getAppConfigs } = useApi();
+
+  useEffect(() => {
+    getAppConfigs();
+  }, [getAppConfigs]);
+
   return (
-    <Suspense fallback={null}>
+    <div className="w-full h-screen overflow-y-auto">
       <Router Routes={Routes} />
-    </Suspense>
+    </div>
   );
 }
 
